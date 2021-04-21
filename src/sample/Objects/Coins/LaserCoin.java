@@ -15,7 +15,7 @@ public class LaserCoin extends SpecialCoin{
 
     @Override
     public int getValue() {
-        model.laserPower();
+        model.newPower("laser");
         return super.getValue();
     }
 }

@@ -12,7 +12,7 @@ public class MagnetCoin extends SpecialCoin{
     }
     @Override
     public int getValue() {
-        model.MagnetPower();
+        model.newPower("magnet");
         return super.getValue();
     }
 }

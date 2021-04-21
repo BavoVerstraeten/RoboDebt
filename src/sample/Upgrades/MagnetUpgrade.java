@@ -5,14 +5,20 @@ import sample.Objects.Robot;
 
 public class MagnetUpgrade extends Upgrade{
     private Robot robot;
-    public MagnetUpgrade(PowerModel model, Robot robot){
-        super(30,model);
+    public MagnetUpgrade(PowerModel model,Robot robot){
+        super(30,model,"magnet");
         this.robot=robot;
-        robot.magnetUpgrade(1);
     }
+
     @Override
     public void expired() {
-        robot.magnetUpgrade(-1);
+        robot.setMagnetUpgrade(false);
         super.expired();
+    }
+
+    @Override
+    public void refresh() {
+        robot.setMagnetUpgrade(true);
+        super.refresh();
     }
 }

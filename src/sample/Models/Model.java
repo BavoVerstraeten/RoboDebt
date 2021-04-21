@@ -25,7 +25,7 @@ public class Model {
     public Model(GridPane pane,Robot robot){
         this.robot=robot;
         this.pane=pane;
-        powers=new PowerModel(robot);
+        powers=new PowerModel(robot,pane);
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.getKeyFrames().add(
                 new KeyFrame(Duration.millis(250),

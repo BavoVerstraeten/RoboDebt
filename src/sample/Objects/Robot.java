@@ -8,9 +8,16 @@ import java.util.List;
 
 public class Robot extends MoveableMapObject {
 
-    private int lasers=0;
-    private int magnets=0;
+    private boolean laserUpgrade;
+    private boolean magnetUpgrade;
 
+    public void setLaserUpgrade(boolean laserUpgrade) {
+        this.laserUpgrade = laserUpgrade;
+    }
+
+    public void setMagnetUpgrade(boolean magnetUpgrade) {
+        this.magnetUpgrade = magnetUpgrade;
+    }
 
     public Robot(){
         super(0,0,0);
@@ -22,7 +29,7 @@ public class Robot extends MoveableMapObject {
     public List<Integer> move(int dr, int dc, int direction){
         this.direction=direction;
         super.move(dr,dc);
-        if(magnets==0)
+        if(!magnetUpgrade)
         return  Arrays.asList(r,c);
         ArrayList<Integer> spotsToCheck = new ArrayList<>();
         for(int i =-1;i<=1;i++){
@@ -34,17 +41,9 @@ public class Robot extends MoveableMapObject {
         return spotsToCheck;
     }
 
-    public void laserUpgrade(int difference){
-        lasers+=difference;
-    }
-    public void magnetUpgrade(int difference){
-        magnets+=difference;
-    }
-
-
     @Override
     public int[] getDirection() {
-        if(lasers==0)
+        if(!laserUpgrade)
         return super.getDirection();
         return new int[]{0,1,2,3};
     }
