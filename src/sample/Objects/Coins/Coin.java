@@ -13,6 +13,7 @@ public abstract class Coin extends MapObject {
     public int getValue(){
         return value;
     }
+    public int collected(){return value;}
 
     public double getWeight() {
         return weight;

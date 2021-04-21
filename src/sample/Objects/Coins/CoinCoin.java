@@ -12,9 +12,10 @@ public class CoinCoin extends SpecialCoin{
     }
 
     @Override
-    public int getValue() {
+    public int collected() {
         for(int i=0;i<10;i++)
             model.spawnCoin();
         return super.getValue();
     }
+
 }

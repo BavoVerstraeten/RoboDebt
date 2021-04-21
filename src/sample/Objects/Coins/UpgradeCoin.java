@@ -12,7 +12,7 @@ public class UpgradeCoin extends SpecialCoin {
     }
 
     @Override
-    public int getValue() {
+    public int collected() {
         for(int i=0;i<20;i++)
             model.upgradeCoin();
         return super.getValue();

@@ -11,7 +11,7 @@ public class MagnetCoin extends SpecialCoin{
         this.model=model;
     }
     @Override
-    public int getValue() {
+    public int collected() {
         model.newPower("magnet");
         return super.getValue();
     }

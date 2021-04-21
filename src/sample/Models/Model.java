@@ -45,25 +45,28 @@ public class Model {
             Coin coin = map[r][c];
             pane.getChildren().remove(coin);
             map[r][c]=null;
-            return coin.getValue();
+            return coin.collected();
         }
         return 0;
     }
     public void spawnCoin(){
         int r = rg.nextInt(10);
         int c = rg.nextInt(10);
-        if(map[r][c]==null && (r!=robot.getR() || c!=robot.getC())) {
-            TreeMap<Double,Coin> tree=new TreeMap<>();
-            ArrayList<Coin> coins = new ArrayList<>(Arrays.asList(
-                    new OneCoin(r, c), new FiveCoin(r, c), new TwentyCoin(r, c),
-                    new CoinCoin(r,c,this),new UpgradeCoin(r,c,this),new LaserCoin(r,c,powers),new MagnetCoin(r,c,powers)));
-            double count = 0.0;
-            for(Coin entry : coins){
-                tree.put(count,entry);
-                count+=entry.getWeight();
-            }
-            double num = rg.nextDouble() * count;
-            Coin coin = tree.get(tree.floorKey(num));
+        TreeMap<Double,Coin> tree=new TreeMap<>();
+        ArrayList<Coin> coins = new ArrayList<>(Arrays.asList(
+                new OneCoin(r, c), new FiveCoin(r, c), new TwentyCoin(r, c),
+                new CoinCoin(r,c,this),new UpgradeCoin(r,c,this),new LaserCoin(r,c,powers),new MagnetCoin(r,c,powers)));
+        double count = 0.0;
+        for(Coin entry : coins){
+            tree.put(count,entry);
+            count+=entry.getWeight();
+        }
+        double num = rg.nextDouble() * count;
+        Coin coin = tree.get(tree.floorKey(num));
+        if((map[r][c]==null||((map[r][c].getValue()<coin.getValue()||coin.isSpecial()) && !map[r][c].isSpecial()))
+                && (r!=robot.getR() || c!=robot.getC())) {
+            if(map[r][c]!=null)
+                pane.getChildren().remove(map[r][c]);
             map[r][c]=coin;
             pane.getChildren().add(coin);
         }
