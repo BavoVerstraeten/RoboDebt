@@ -1,6 +1,7 @@
-package sample;
+package sample.Objects;
 
 import javafx.scene.image.Image;
+import sample.Models.Lasers;
 
 
 public class Laser extends MoveableMapObject{

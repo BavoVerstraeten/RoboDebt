@@ -1,4 +1,4 @@
-package sample;
+package sample.Objects.Coins;
 
 import javafx.scene.image.Image;
 

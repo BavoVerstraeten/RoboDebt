@@ -1,6 +1,8 @@
-package sample;
+package sample.Objects;
 
-public class MoveableMapObject extends MapObject{
+import sample.Objects.MapObject;
+
+public class MoveableMapObject extends MapObject {
 
 
 
@@ -12,8 +14,8 @@ public class MoveableMapObject extends MapObject{
         this.direction=direction;
         move(0,0);
     }
-    public int getDirection() {
-        return direction;
+    public int[] getDirection() {
+        return new int[]{direction};
     }
 
     @Override

@@ -1,7 +1,6 @@
-package sample;
+package sample.Objects.Coins;
 
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import sample.Objects.MapObject;
 
 public abstract class Coin extends MapObject {
     private int value;
@@ -18,4 +17,5 @@ public abstract class Coin extends MapObject {
     public double getWeight() {
         return weight;
     }
+    public boolean isSpecial(){return false;}
 }

@@ -1,10 +1,12 @@
-package sample;
+package sample.Models;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.GridPane;
 import javafx.util.Duration;
+import sample.Controller;
+import sample.Objects.Laser;
 
 import java.util.ArrayList;
 
@@ -21,7 +23,7 @@ public class Lasers {
         this.controller=controller;
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.getKeyFrames().add(
-                new KeyFrame(Duration.millis(250),
+                new KeyFrame(Duration.millis(100),
                         this::eachTick));
         timeline.play();
     }
